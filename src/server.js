@@ -27,7 +27,7 @@ const handlers = (req, res) => {
     // deleteTodo.js
     deleteTodosAll(res, todos)
   } else if (req.url.startsWith('/todos/') && req.method == 'DELETE') {
-    // deleteTodo.js
+    deleteIdTodo(res, req, todos)
   } else if (req.url.startsWith('/todos/') && req.method == 'PATCH') {
     // patchTodo.js
   } else if (req.method == 'OPTIONS') {
