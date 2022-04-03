@@ -1,6 +1,6 @@
 function deleteIdTodo(res, req, todos) {
   let id = req.url.split('/').pop()
-  let index = todos.findIndex(item => item.id === id)
+  let index = todos.findIndex((item) => item.id === id)
   if (index !== -1) {
     res.status(200).json({
       status: 'success',
@@ -16,4 +16,4 @@ function deleteIdTodo(res, req, todos) {
   }
 }
 
-module.exports = deleteIdTodo;
+module.exports = deleteIdTodo
