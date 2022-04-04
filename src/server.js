@@ -31,7 +31,7 @@ const handlers = (req, res) => {
   } else if (req.url.startsWith('/todos/') && req.method == 'DELETE') {
     deleteIdTodo(res, req, todos)
   } else if (req.url.startsWith('/todos/') && req.method == 'PATCH') {
-    patchTodo()
+    patchTodo(res, req, todos)
   } else if (req.method == 'OPTIONS') {
     res.sendStatus(httpStatus.OK)
   } else {
