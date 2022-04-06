@@ -3,6 +3,7 @@ const middleware = require('./middleware')
 const httpStatus = require('./config/httpStatus')
 const deleteTodosAll = require('./deleteTodo')
 const getTodo = require('./getTodo')
+const getTodoById = require('./getTodoById')
 const postTodo = require('./postTodo')
 const todos = []
 
@@ -21,6 +22,8 @@ const requestListener = (req, res) => {
 const handlers = (req, res) => {
   if (req.url == '/todos' && req.method == 'GET') {
     getTodo(res, todos)
+  } else if (req.url.startsWith('/todos/') && req.method == 'GET') {
+    getTodoById(req, res, todos)
   } else if (req.url == '/todos' && req.method == 'POST') {
     postTodo(res, req, todos)
   } else if (req.url == '/todos' && req.method == 'DELETE') {
