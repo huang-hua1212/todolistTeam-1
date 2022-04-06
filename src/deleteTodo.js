@@ -1,5 +1,5 @@
-function deleteTodosAll(res,todos) {
-  todos.length = 0;
+function deleteTodosAll(res, todos) {
+  todos.length = 0
   res.status(200)
   res.json({
     status: 'success',
@@ -7,4 +7,4 @@ function deleteTodosAll(res,todos) {
   })
 }
 
-module.exports = deleteTodosAll;
+module.exports = deleteTodosAll

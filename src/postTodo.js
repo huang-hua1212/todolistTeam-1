@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid')
 
-function postTodo(res, req, todos){
+function postTodo(res, req, todos) {
   const title = JSON.parse(req.body).title
   if (title !== undefined) {
     todos.push({
@@ -14,9 +14,9 @@ function postTodo(res, req, todos){
   } else {
     res.status(400).json({
       status: 'false',
-      message: 'title 欄位未填寫正確'
+      message: 'title 欄位未填寫正確',
     })
-  } 
+  }
 }
 
 module.exports = postTodo
