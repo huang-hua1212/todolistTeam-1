@@ -2,6 +2,7 @@ function deleteIdTodo(res, req, todos) {
   let id = req.url.split('/').pop()
   let index = todos.findIndex((item) => item.id === id)
   if (index !== -1) {
+    todos.splice(index, 1)
     res.status(200).json({
       status: 'success',
       data: todos,
