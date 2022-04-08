@@ -2,7 +2,11 @@ const http = require('http')
 const middleware = require('./middleware')
 const httpStatus = require('./config/httpStatus')
 const getTodo = require('./getTodo')
-// const postTodo = require('./postTodo')
+const getTodoById = require('./getTodoById')
+const postTodo = require('./postTodo')
+const deleteTodosAll = require('./deleteTodo')
+const deleteIdTodo = require('./deleteIdTodo')
+const patchTodo = require('./patchTodo')
 const todos = []
 
 const requestListener = (req, res) => {
@@ -20,14 +24,17 @@ const requestListener = (req, res) => {
 const handlers = (req, res) => {
   if (req.url == '/todos' && req.method == 'GET') {
     getTodo(res, todos)
+  } else if (req.url.startsWith('/todos/') && req.method == 'GET') {
+    getTodoById(req, res, todos)
   } else if (req.url == '/todos' && req.method == 'POST') {
-    // postTodo(res, req, todos)
+    postTodo(res, req, todos)
   } else if (req.url == '/todos' && req.method == 'DELETE') {
     // deleteTodo.js
+    deleteTodosAll(res, todos)
   } else if (req.url.startsWith('/todos/') && req.method == 'DELETE') {
-    // deleteTodo.js
+    deleteIdTodo(res, req, todos)
   } else if (req.url.startsWith('/todos/') && req.method == 'PATCH') {
-    // patchTodo.js
+    patchTodo(res, req, todos)
   } else if (req.method == 'OPTIONS') {
     res.sendStatus(httpStatus.OK)
   } else {
