@@ -4,7 +4,7 @@
 npm install
 ```
 
-### Compiles and start Server in Development
+### Compiles and start Server
 ```
 npm run start
 ```
